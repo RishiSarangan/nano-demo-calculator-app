@@ -10,16 +10,25 @@ app.use(express.json());
 const baseRouter = express.Router();
 
 baseRouter.get('/greeting', (req, res) => {
-    return res.send('');
+    return res.send('Hello world!');
 });
 
 baseRouter.post('/add', (req, res) => {
-    res.json({ "": null });
+    let data1 = req.body.first;
+    let data2 = req.body.second;
+    data1 = 2;
+    data2 = 2;
+    let total = data1 + data2;
+    res.json({ result: total });
 });
 
-
 baseRouter.post('/subtract', (req, res) => {
-    res.json({ "": null });
+    let data1 = req.body.first;
+    let data2 = req.body.second;
+    data1 = 2;
+    data2 = 2;
+    let total = data1 - data2;
+    res.json({ result: total });
 });
 
 app.use(baseUrl, baseRouter);
